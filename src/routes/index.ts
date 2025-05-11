@@ -4,10 +4,11 @@ import ContactosController from '@controllers/controllers.js';
 
 const router = Router();
 
-router.get('/index',ContactosController.index);
+router.get('/',ContactosController.index);
 router.get('/admin/contacts',ContactosController.getAllContacts);
 router.get('/payment',ContactosController.payment);
 router.get('/getPayment',ContactosController.getPayment);
+router.get('/entrenamiento',ContactosController.getEntrenamiento);
 
 router.post('/contact/add',ContactosController.add);
 router.post('/payment/add',ContactosController.paymentAdd);

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <title>BrachoFIT - Entrenamiento Personalizado</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/fonts.css">
+</head>
+
+<body>
+    <div id="header">
+        <h1>
+            <img id="logo" src="../imagenes/brachofit.png" alt="BrachoFIT Gym LOGO">
+        </h1>
+    </div>
+
+    <div id="background">
+        <div id="menu">
+            <div id="volver">
+                <a id="volpag" href="/"><b>Volver a la página principal</b></a>
+            </div>
+
+            <div id="entrenamiento-personalizado">
+            <h2>Crea con nosotros tu propio plan de entrenamiento personalizado</h2>
+            </div>
+        <div id="llene_formulario">
+            <h3>Llena el siguiente formulario</h3>
+        </div>
+        <div id="recordatorio">
+            <h4>Recuerda que todos los campos son obligatorios</h4>
+        </div>
+
+            <form id="formulario_entrenamiento">
+                <ul class="form_datos">
+                    <li>
+                        <input class="datos" type="text" name="nombre" placeholder="Nombre" required minlength="3" alt="Nombre del cliente"> <input class="datos" type="text" name="apellido" placeholder="Apellido" required minlength="3" alt="Apellido del cliente">
+                    </li>
+                    <li>
+                        <input class="datos" type="text" name="cedula" placeholder="Cédula" required minlength="8" alt="Cédula del cliente"> (Ej: 31.898.868)
+                    </li>
+                    <li>
+                        <b>Ingrese su sexo: </b>
+                        Masculino <input class="datos" type="radio" name="sexo" value="Masculino" required alt="Sexo del cliente">
+                        Femenino <input class="datos" type="radio" name="sexo" value="Femenino" required alt="Sexo del cliente">
+                    </li>
+                    <li>
+                        <label for="fecha_nacimiento">Fecha de Nacimiento</label>
+                        <input class="datos" type="date" name="fecha_nacimiento" required alt="Fecha de nacimiento del cliente">
+                    </li>
+                    <li>
+                        <input class="datos" type="text" name="nacionalidad" placeholder="Nacionalidad" required minlength="3" alt="Nacionalidad del cliente"> <input class="datos" type="text" name="direccion" placeholder="Dirección" required minlength="3" alt="Dirección del cliente">
+                    </li>
+                    <li>
+                        <input class="datos" type="email" name="correo" placeholder="Correo Electrónico" required alt="Correo electrónico del cliente">                         <input class="datos" type="text" name="telefono" placeholder="Teléfono" required minlength="7" alt="Teléfono del cliente">
+                    </li>
+                    <li>
+                        <label for="foto">Foto de la cédula</label>
+                        <input class="datos" type="file" name="foto" accept="image/*" alt="Foto de la cédula del cliente">
+                    </li>
+                    <li>
+                        <input class="datos" type="text" name="peso" placeholder="Peso (KG)" required alt="Peso del cliente">                         <input class="datos" type="text" name="altura" placeholder="Altura (cm)" required alt="Altura del cliente">
+                    </li>
+                    <li>
+                        <input class="datos" type="text" name="objetivo" placeholder="Objetivo" required alt="Objetivo del cliente"> (Ej: Aumento de masa muscular, pérdida de peso, etc.)
+                    </li>
+                    <li>
+                        <b>Ingrese los días de la semana que usted tenga disponibles</b><br>
+                        <div>
+                            Lunes <input class="datos" type="checkbox" name="dias_disponibles" value="Lunes" alt="Lunes">
+                        </div>
+                        <div>
+                            Martes <input class="datos" type="checkbox" name="dias_disponibles" value="Martes" alt="Martes">
+                        </div>
+                        <div>
+                            Miércoles <input class="datos" type="checkbox" name="dias_disponibles" value="Miércoles" alt="Miércoles">
+                        </div>
+                        <div>
+                            Jueves <input class="datos" type="checkbox" name="dias_disponibles" value="Jueves" alt="Jueves">
+                        </div>
+                        <div>
+                            Viernes <input class="datos" type="checkbox" name="dias_disponibles" value="Viernes" alt="Viernes">
+                        </div>
+                        <div>
+                            Sábado <input class="datos" type="checkbox" name="dias_disponibles" value="Sábado" alt="Sábado">
+                        </div>
+                    </li>
+                    <li>
+                        <label for="enfermedades">¿Tiene alguna enfermedad específica?</label>
+                        <input class="datos" type="checkbox" name="enfermedades_check" alt="Enfermedades del cliente">
+                        <input class="datos" type="text" name="enfermedades" placeholder="Especifique enfermedades" alt="Enfermedades del cliente">
+                    </li>
+                    <li>
+                        <label for="alergias">¿Tiene alergias?</label>
+                        <input class="datos" type="checkbox" name="alergias_check" alt="Alergias del cliente">
+                        <input class="datos" type="text" name="alergias" placeholder="Especifique alergias" alt="Alergias del cliente">
+                    </li>
+                    <li>
+                        <label for="medicamentos">¿Toma algún medicamento?</label>
+                        <input class="datos" type="checkbox" name="medicamentos_check" alt="Medicamentos del cliente">
+                        <input class="datos" type="text" name="medicamentos" placeholder="Especifique medicamentos" alt="Medicamentos del cliente">
+                    </li>
+                    <li>
+                        <label for="suplementos">¿Toma algún suplemento?</label>
+                        <input class="datos" type="checkbox" name="suplementos_check" alt="Suplementos del cliente">
+                        <input class="datos" type="text" name="suplementos" placeholder="Especifique suplementos" alt="Suplementos del cliente">
+                    </li>
+                    <li>
+                        <a  class="datos" href="/payment">Enviar</a>
+                        <input class="datos" type="reset" value="Limpiar" alt="Limpiar formulario">
+                    </li>
+                </ul>
+            </form>
+                   
+        </div>
+    </div>
+    <div id="footer">
+        <p>&copy; 2025 BrachoFIT. Todos los derechos reservados.</p>
+    </div>
+</body>
+
+</html>
