@@ -1,0 +1,239 @@
+{
+  "nav": {
+    "inicio": "Inicio",
+    "servicios": "Servicios",
+    "beneficios": "Beneficios",
+    "entrenamiento": "Entrenamiento",
+    "pagos": "Pagos",
+    "contacto": "Contacto",
+    "login": "Iniciar Sesión",
+    "logout": "Cerrar Sesión",
+    "idioma": "Idioma"
+  },
+  "index":{
+    "slogan": "CAMBIA TU MENTALIDAD, CAMBIA TU VIDA",
+    "discover": "¡Descubre el poder del gimnasio y el entrenamiento personalizado!",
+    "gym_benefits_title": "Beneficios de entrenar en nuestro gimnasio",
+    "gym_benefits": {
+      "equipment": "Acceso a equipamiento profesional:",
+      "equipment_desc": "Máquinas de última tecnología y pesas para un entrenamiento completo.",
+      "environment": "Ambiente motivador:",
+      "environment_desc": "Rodéate de personas con objetivos similares y mantén la disciplina.",
+      "classes": "Clases grupales dinámicas:",
+      "classes_desc": "Yoga, spinning, HIIT y más para entrenar de forma divertida.",
+      "health": "Mejora tu salud física y mental:",
+      "health_desc": "Reduce el estrés, mejora tu estado de ánimo y fortalece tu cuerpo.",
+      "routines": "Rutinas estructuradas:",
+      "routines_desc": "Entrenamientos organizados para lograr tus metas con eficacia."
+    },
+    "personal_training_title": "Ventajas del entrenamiento personalizado",
+    "personal_training": {
+      "programs": "Programas adaptados a ti:",
+      "programs_desc": "Diseñamos planes específicos para tu nivel y objetivos.",
+      "technique": "Corrección de técnica:",
+      "technique_desc": "Evita lesiones y maximiza resultados con supervisión experta.",
+      "results": "Resultados más rápidos:",
+      "results_desc": "Al enfocarnos en lo que realmente necesitas, avanzas más rápido.",
+      "motivation": "Motivación y seguimiento constante:",
+      "motivation_desc": "Tu entrenador te ayuda a superar límites y alcanzar el éxito.",
+      "flexibility": "Flexibilidad en horarios y entrenamientos:",
+      "flexibility_desc": "Adapta tu rutina a tu estilo de vida sin complicaciones."
+    },
+    "services_title": "Nuestros Servicios",
+    "services": {
+      "membership": {
+        "title": "Membresía Completa",
+        "description": "Acceso completo a todas las instalaciones del gimnasio, equipos y áreas comunes."
+      },
+      "personal_training": {
+        "title": "Entrenamiento Personal",
+        "description": "Sesiones individuales con entrenadores certificados para alcanzar tus objetivos específicos."
+      },
+      "nutrition": {
+        "title": "Asesoría Nutricional",
+        "description": "Planes alimenticios personalizados para complementar tu entrenamiento y maximizar resultados."
+      },
+      "classes": {
+        "title": "Clases Grupales",
+        "description": "Participa en nuestras clases de yoga, spinning, HIIT, zumba y más actividades grupales."
+      },
+      "acquire_button": "Adquirir"
+    },
+    "signup_here": "INSCRÍBETE AQUÍ",
+    "benefits_text": "Entrenar en el gimnasio con un plan personalizado ofrece múltiples beneficios para la salud y el bienestar. No solo mejora la condición física y fortalece el cuerpo, sino que también optimiza los resultados al adaptar los ejercicios a las necesidades y objetivos individuales. Contar con la orientación de un entrenador permite una correcta ejecución de los movimientos, reduciendo el riesgo de lesiones y maximizando la eficiencia del entrenamiento. Además, favorece la motivación y la constancia, brindando un apoyo profesional que impulsa el progreso. Sumado a esto, el ejercicio regular mejora la salud cardiovascular, la resistencia y el estado de ánimo, convirtiendo cada sesión en un paso hacia un estilo de vida más saludable y equilibrado.",
+    "what_looking_for": "¿Qué estás buscando?",
+    "search_options": {
+      "personal_training": "Entrenamiento Personalizado",
+      "supplements": "Suplementos",
+      "gym_articles": "Artículos para el gimnasio",
+      "trainers": "Entrenadores",
+      "schedules": "Horarios",
+      "prices": "Precios"
+    },
+    "contact": "Contacto",
+    "contact_info": {
+      "phone": "Teléfono",
+      "email": "Correo",
+      "follow_instagram": "Síguenos en Instagram",
+      "follow_facebook": "Síguenos en Facebook",
+      "follow_tiktok": "Síguenos en TikTok",
+      "location": "Ubicación"
+    },
+    "contact_form": {
+      "title": "Formulario de Contacto",
+      "name_placeholder": "Nombre",
+      "name_alt": "Nombre del cliente",
+      "email_placeholder": "Correo Electrónico",
+      "email_alt": "Correo electrónico del cliente",
+      "comment_placeholder": "Cualquier cosa",
+      "submit_button": "Registrar",
+      "submit_alt": "Enviar formulario de contacto",
+      "reset_button": "Limpiar",
+      "reset_alt": "Limpiar formulario de contacto"
+    },
+    "footer": {
+      "rights_reserved": "Todos los derechos reservados."
+    },
+    "services": {
+      "title": "Nuestros Servicios",
+      "subtitle": "Descubre todos los servicios que BrachoFIT tiene para ti. Desde membresías completas hasta entrenamientos personalizados.",
+      "per_month": "mes",
+      "per_session": "sesión",
+      "per_class": "clase",
+      "acquire_button": "Adquirir Servicio",
+      "membership": {
+        "title": "Membresía Completa",
+        "description": "Acceso total a todas las instalaciones y equipos del gimnasio las 24 horas del día.",
+        "feature1": "Acceso 24/7 al gimnasio",
+        "feature2": "Uso de todos los equipos",
+        "feature3": "Área de cardio y pesas",
+        "price": "$29.99"
+      },
+      "personal_training": {
+        "title": "Entrenamiento Personal",
+        "description": "Sesiones individualizadas con entrenadores certificados para maximizar tus resultados.",
+        "feature1": "Entrenador personalizado",
+        "feature2": "Plan de ejercicios adaptado",
+        "feature3": "Seguimiento de progreso",
+        "price": "$45.00"
+      },
+      "nutrition": {
+        "title": "Asesoría Nutricional",
+        "description": "Planes alimenticios personalizados diseñados por nutricionistas especializados.",
+        "feature1": "Plan nutricional personalizado",
+        "feature2": "Seguimiento semanal",
+        "feature3": "Recetas saludables",
+        "price": "$35.00"
+      },
+      "classes": {
+        "title": "Clases Grupales",
+        "description": "Únete a nuestras dinámicas clases grupales: Yoga, Spinning, HIIT, Zumba y más.",
+        "feature1": "Yoga y Pilates",
+        "feature2": "Spinning y Cardio",
+        "feature3": "HIIT y Funcional",
+        "price": "$12.00"
+      },
+      "premium": {
+        "title": "Plan Premium",
+        "description": "La experiencia completa de BrachoFIT con todos los servicios incluidos y beneficios exclusivos.",
+        "feature1": "Todos los servicios incluidos",
+        "feature2": "Acceso VIP y priority",
+        "feature3": "Descuentos en productos",
+        "price": "$89.99",
+        "badge": "POPULAR"
+      },
+      "therapy": {
+        "title": "Terapia Deportiva",
+        "description": "Sesiones de fisioterapia y rehabilitación deportiva con especialistas certificados.",
+        "feature1": "Fisioterapia especializada",
+        "feature2": "Rehabilitación deportiva",
+        "feature3": "Prevención de lesiones",
+        "price": "$55.00"
+      }
+    }
+  },
+   "auth": {
+    "login_button": "Iniciar Sesión",
+    "register_button": "Registrarse",
+    "login_title": "Iniciar Sesión",
+    "login_subtitle": "Ingresa a tu cuenta existente",
+    "register_title": "Crear Cuenta",
+    "register_subtitle": "Únete a nuestra comunidad hoy",
+    "email_label": "Correo Electrónico",
+    "email_placeholder": "tucorreo@ejemplo.com",
+    "password_label": "Contraseña",
+    "password_placeholder": "••••••••",
+    "name_label": "Nombre Completo",
+    "name_placeholder": "Juan Pérez",
+    "confirm_password_label": "Confirmar Contraseña",
+    "confirm_password_placeholder": "••••••••",
+    "google_login": "Iniciar sesión con Google",
+    "login_submit": "Ingresar",
+    "register_submit": "Registrarse"
+  },
+  "contactos": {
+    "title": "Contactos y Comentarios",
+    "subtitle": "Administra y revisa todos los mensajes de contacto",
+    "table": {
+      "name": "Nombre",
+      "email": "Email",
+      "comment": "Comentario",
+      "ip": "IP",
+      "date": "Fecha"
+    },
+    "total_contacts": "Total de contactos",
+    "last_updated": "Última actualización",
+    "empty_state": {
+      "title": "No hay contactos disponibles",
+      "message": "No hay registros de contactos disponibles en este momento. Los nuevos mensajes aparecerán aquí."
+    }
+  },
+  "getPayments": {
+    "title": "Pagos Recibidos",
+    "subtitle": "Gestiona y revisa todas las transacciones de pago",
+    "table": {
+      "cardholder": "Titular",
+      "email": "Correo",
+      "card": "Tarjeta",
+      "expiry": "Expiración",
+      "currency": "Moneda",
+      "amount": "Monto",
+      "date": "Fecha"
+    },
+    "card_types": {
+      "visa": "Visa",
+      "mastercard": "Mastercard",
+      "amex": "American Express",
+      "generic": "Tarjeta de Crédito"
+    },
+    "total_payments": "Total de pagos",
+    "total_amount": "Monto total",
+    "last_updated": "Última actualización",
+    "empty_state": {
+      "title": "No hay pagos disponibles",
+      "message": "No hay registros de pagos disponibles en este momento. Las nuevas transacciones aparecerán aquí."
+    }
+  },
+  "paymentForm": {
+    "title": "Registro de Pago",
+    "subtitle": "Complete los detalles para pagar",
+    "emailLabel": "Correo Electrónico",
+    "emailPlaceholder": "ejemplo@dominio.com",
+    "cardholderLabel": "Nombre del Titular",
+    "cardholderPlaceholder": "Como aparece en la tarjeta",
+    "cardNumberLabel": "Número de Tarjeta",
+    "cardNumberPlaceholder": "1234 5678 9012 3456",
+    "expDateLabel": "Fecha de Expiración",
+    "expMonthPlaceholder": "Mes",
+    "expYearPlaceholder": "Año",
+    "cvvLabel": "Código de Seguridad",
+    "cvvPlaceholder": "123",
+    "amountLabel": "Monto a Pagar",
+    "currencyUSD": "USD $",
+    "currencyEUR": "EUR €",
+    "currencyGBP": "GBP £",
+    "currencyJPY": "JPY ¥",
+    "amountPlaceholder": "0.00",
+    "submit": "Finalizar Pago"
+  }
+}

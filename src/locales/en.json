@@ -1,0 +1,239 @@
+{
+ "nav":{
+  "inicio": "Home",
+  "servicios": "Services",
+  "beneficios": "Benefits",
+  "entrenamiento": "Training",
+  "pagos": "Payments",
+  "contacto": "Contact",
+  "login": "Login",
+  "logout": "Logout",
+  "idioma": "Language"
+},
+"index":{
+  "slogan":"CHANGE YOUR MINDSET, CHANGE YOUR LIFE",
+  "discover":"Discover the power of the gym and personalized training!",
+  "gym_benefits_title": "Benefits of training at our gym",
+  "gym_benefits": {
+    "equipment": "Access to professional equipment:",
+    "equipment_desc": "State-of-the-art machines and weights for a complete workout.",
+    "environment": "Motivating environment:",
+    "environment_desc": "Surround yourself with people with similar goals and maintain discipline.",
+    "classes": "Dynamic group classes:",
+    "classes_desc": "Yoga, spinning, HIIT and more for fun training.",
+    "health": "Improve your physical and mental health:",
+    "health_desc": "Reduce stress, improve your mood and strengthen your body.",
+    "routines": "Structured routines:",
+    "routines_desc": "Organized workouts to achieve your goals effectively."
+  },
+  "personal_training_title": "Advantages of personalized training",
+  "personal_training": {
+    "programs": "Programs tailored to you:",
+    "programs_desc": "We design specific plans for your level and goals.",
+    "technique": "Technique correction:",
+    "technique_desc": "Avoid injuries and maximize results with expert supervision.",
+    "results": "Faster results:",
+    "results_desc": "By focusing on what you really need, you progress faster.",
+    "motivation": "Constant motivation and follow-up:",
+    "motivation_desc": "Your trainer helps you overcome limits and achieve success.",
+    "flexibility": "Flexibility in schedules and workouts:",
+    "flexibility_desc": "Adapt your routine to your lifestyle without complications."
+  },
+  "services_title": "Our Services",
+  "services": {
+    "membership": {
+      "title": "Full Membership",
+      "description": "Complete access to all gym facilities, equipment and common areas."
+    },
+    "personal_training": {
+      "title": "Personal Training",
+      "description": "Individual sessions with certified trainers to achieve your specific goals."
+    },
+    "nutrition": {
+      "title": "Nutritional Counseling",
+      "description": "Personalized meal plans to complement your training and maximize results."
+    },
+    "classes": {
+      "title": "Group Classes",
+      "description": "Participate in our yoga, spinning, HIIT, zumba and more group activities."
+    },
+    "acquire_button": "Acquire"
+  },
+  "signup_here": "SIGN UP HERE",
+  "benefits_text": "Training at the gym with a personalized plan offers multiple benefits for health and well-being. It not only improves physical condition and strengthens the body, but also optimizes results by adapting exercises to individual needs and goals. Having the guidance of a trainer allows for correct execution of movements, reducing the risk of injuries and maximizing training efficiency. Additionally, it promotes motivation and consistency, providing professional support that drives progress. Added to this, regular exercise improves cardiovascular health, endurance and mood, making each session a step towards a healthier and more balanced lifestyle.",
+  "what_looking_for": "What are you looking for?",
+  "search_options": {
+    "personal_training": "Personal Training",
+    "supplements": "Supplements",
+    "gym_articles": "Gym Articles",
+    "trainers": "Trainers",
+    "schedules": "Schedules",
+    "prices": "Prices"
+  },
+  "contact": "Contact",
+  "contact_info": {
+    "phone": "Phone",
+    "email": "Email",
+    "follow_instagram": "Follow us on Instagram",
+    "follow_facebook": "Follow us on Facebook",
+    "follow_tiktok": "Follow us on TikTok",
+    "location": "Location"
+  },
+  "contact_form": {
+    "title": "Contact Form",
+    "name_placeholder": "Name",
+    "name_alt": "Client's name",
+    "email_placeholder": "Email",
+    "email_alt": "Client's email",
+    "comment_placeholder": "Anything",
+    "submit_button": "Submit",
+    "submit_alt": "Send contact form",
+    "reset_button": "Clear",
+    "reset_alt": "Clear contact form"
+  },
+  "footer":{
+    "rights_reserved": "All rights reserved."
+  },
+  "services":{
+    "title": "Our Services",
+    "subtitle": "Discover all the services that BrachoFIT has for you. From full memberships to personalized training.",
+    "per_month": "month",
+    "per_session": "session",
+    "per_class": "class",
+    "acquire_button": "Get Service",
+    "membership": {
+      "title": "Full Membership",
+      "description": "Total access to all gym facilities and equipment 24 hours a day.",
+      "feature1": "24/7 gym access",
+      "feature2": "Use of all equipment",
+      "feature3": "Cardio and weights area",
+      "price": "$29.99"
+    },
+    "personal_training": {
+      "title": "Personal Training",
+      "description": "Individualized sessions with certified trainers to maximize your results.",
+      "feature1": "Personal trainer",
+      "feature2": "Customized exercise plan",
+      "feature3": "Progress tracking",
+      "price": "$45.00"
+    },
+    "nutrition": {
+      "title": "Nutritional Counseling",
+      "description": "Personalized meal plans designed by specialized nutritionists.",
+      "feature1": "Personalized nutrition plan",
+      "feature2": "Weekly follow-up",
+      "feature3": "Healthy recipes",
+      "price": "$35.00"
+    },
+    "classes": {
+      "title": "Group Classes",
+      "description": "Join our dynamic group classes: Yoga, Spinning, HIIT, Zumba and more.",
+      "feature1": "Yoga and Pilates",
+      "feature2": "Spinning and Cardio",
+      "feature3": "HIIT and Functional",
+      "price": "$12.00"
+    },
+    "premium": {
+      "title": "Premium Plan",
+      "description": "The complete BrachoFIT experience with all services included and exclusive benefits.",
+      "feature1": "All services included",
+      "feature2": "VIP access and priority",
+      "feature3": "Product discounts",
+      "price": "$89.99",
+      "badge": "POPULAR"
+    },
+    "therapy": {
+      "title": "Sports Therapy",
+      "description": "Physiotherapy and sports rehabilitation sessions with certified specialists.",
+      "feature1": "Specialized physiotherapy",
+      "feature2": "Sports rehabilitation",
+      "feature3": "Injury prevention",
+      "price": "$55.00"
+    }
+  }
+},
+"auth": {
+    "login_button": "Sign In",
+    "register_button": "Sign Up",
+    "login_title": "Sign In",
+    "login_subtitle": "Access your existing account",
+    "register_title": "Create Account",
+    "register_subtitle": "Join our community today",
+    "email_label": "Email Address",
+    "email_placeholder": "youremail@example.com",
+    "password_label": "Password",
+    "password_placeholder": "••••••••",
+    "name_label": "Full Name",
+    "name_placeholder": "John Doe",
+    "confirm_password_label": "Confirm Password",
+    "confirm_password_placeholder": "••••••••",
+    "google_login": "Sign in with Google",
+    "login_submit": "Sign In",
+    "register_submit": "Sign Up"
+  },
+   "contactos":{
+    "title": "Contacts and Comments",
+    "subtitle": "Manage and review all contact messages",
+    "table": {
+      "name": "Name",
+      "email": "Email",
+      "comment": "Comment",
+      "ip": "IP",
+      "date": "Date"
+    },
+    "total_contacts": "Total contacts",
+    "last_updated": "Last updated",
+    "empty_state": {
+      "title": "No contacts available",
+      "message": "No contact records are available at this time. New messages will appear here."
+    }
+  },
+  "getPayments": {
+    "title": "Received Payments",
+    "subtitle": "Manage and review all payment transactions",
+    "table": {
+      "cardholder": "Cardholder",
+      "email": "Email",
+      "card": "Card",
+      "expiry": "Expiry",
+      "currency": "Currency",
+      "amount": "Amount",
+      "date": "Date"
+    },
+    "card_types": {
+      "visa": "Visa",
+      "mastercard": "Mastercard",
+      "amex": "American Express",
+      "generic": "Credit Card"
+    },
+    "total_payments": "Total payments",
+    "total_amount": "Total amount",
+    "last_updated": "Last updated",
+    "empty_state": {
+      "title": "No payments available",
+      "message": "No payment records are available at this time. New transactions will appear here."
+    }
+  },
+   "paymentForm": {
+    "title": "Payment Registration",
+    "subtitle": "Complete the details to pay",
+    "emailLabel": "Email Address",
+    "emailPlaceholder": "example@domain.com",
+    "cardholderLabel": "Cardholder Name",
+    "cardholderPlaceholder": "As it appears on the card",
+    "cardNumberLabel": "Card Number",
+    "cardNumberPlaceholder": "1234 5678 9012 3456",
+    "expDateLabel": "Expiration Date",
+    "expMonthPlaceholder": "Month",
+    "expYearPlaceholder": "Year",
+    "cvvLabel": "Security Code",
+    "cvvPlaceholder": "123",
+    "amountLabel": "Amount to Pay",
+    "currencyUSD": "USD $",
+    "currencyEUR": "EUR €",
+    "currencyGBP": "GBP £",
+    "currencyJPY": "JPY ¥",
+    "amountPlaceholder": "0.00",
+    "submit": "Pay Now"
+  }
+}

@@ -4,103 +4,259 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registros de Pagos</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="/css/table.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <style>
-        /* Estilos adicionales específicos para pagos */
-        .card-number {
-            font-family: 'Courier New', monospace;
-            letter-spacing: 1px;
-        }
-        
-        .card-details {
-            display: flex;
-            gap: 0.5rem;
-            align-items: center;
-        }
-        
-        .card-expiry {
-            white-space: nowrap;
-        }
-
-        
-        .card-type {
-            margin-left: 0.5rem;
-            color: #7f8c8d;
-            font-size: 0.9em;
-        }
-    </style>
 </head>
-<body>
-    <div class="contacts-container">
-        <div class="contacts-header">
-            <h1 class="contacts-title"> Pagos recibidos </i></h1>
-        </div>
+<body class="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-black">
+    <%-include('partials/nav')%>
+    <div class="mt-20 container mx-auto px-4 py-8">
+        <div class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-xl shadow-2xl p-6 md:p-8">
+            <!-- Header -->
+            <div class="mb-8">
+                <h1 class="text-3xl md:text-4xl font-bold text-white mb-2">
+                    <%= __('getPayments.title') %>
+                </h1>
+                <p class="text-gray-400 text-lg">
+                    <%= __('getPayments.subtitle') %>
+                </p>
+            </div>
 
-        <% if (datePayments.length > 0) { %>
-            <table class="contacts-table">
-                <thead>
-                    <tr>
-                        <th>Titular</th>
-                        <th>Correo</th>
-                        <th>Tarjeta</th>
-                        <th>Expiración</th>
-                        <th>Moneda</th>
-                        <th>Monto</th>
-                        <th>Fecha</th>
-                    </tr>
-                </thead>
-                <tbody>
+            <% if (datePayments.length > 0) { %>
+                <!-- Desktop Table -->
+                <div class="hidden lg:block overflow-x-auto">
+                    <table class="w-full bg-gray-700/30 rounded-lg overflow-hidden">
+                        <thead class="bg-gradient-to-r from-green-600 to-emerald-600">
+                            <tr>
+                                <th class="px-6 py-4 text-left text-sm font-semibold text-white uppercase tracking-wider">
+                                    <%= __('getPayments.table.cardholder') %>
+                                </th>
+                                <th class="px-6 py-4 text-left text-sm font-semibold text-white uppercase tracking-wider">
+                                    <%= __('getPayments.table.email') %>
+                                </th>
+                                <th class="px-6 py-4 text-left text-sm font-semibold text-white uppercase tracking-wider">
+                                    <%= __('getPayments.table.card') %>
+                                </th>
+                                <th class="px-6 py-4 text-left text-sm font-semibold text-white uppercase tracking-wider">
+                                    <%= __('getPayments.table.expiry') %>
+                                </th>
+                                <th class="px-6 py-4 text-left text-sm font-semibold text-white uppercase tracking-wider">
+                                    <%= __('getPayments.table.currency') %>
+                                </th>
+                                <th class="px-6 py-4 text-left text-sm font-semibold text-white uppercase tracking-wider">
+                                    <%= __('getPayments.table.amount') %>
+                                </th>
+                                <th class="px-6 py-4 text-left text-sm font-semibold text-white uppercase tracking-wider">
+                                    <%= __('getPayments.table.date') %>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-gray-600">
+                            <% datePayments.forEach((payment, index) => { %>
+                                <tr class="hover:bg-gray-600/30 transition-colors duration-200 <%= index % 2 === 0 ? 'bg-gray-700/20' : 'bg-gray-800/20' %>">
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <div class="flex items-center">
+                                            <div class="w-8 h-8 bg-gradient-to-br from-green-500 to-emerald-500 rounded-full flex items-center justify-center mr-3">
+                                                <span class="text-white font-semibold text-sm">
+                                                    <%= payment.nombreTitular.charAt(0).toUpperCase() %>
+                                                </span>
+                                            </div>
+                                            <div class="text-white font-medium"><%= payment.nombreTitular %></div>
+                                        </div>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <div class="text-blue-400 font-medium"><%= payment.correo %></div>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <div class="flex items-center space-x-2">
+                                            <div class="text-gray-300 font-mono">
+                                                •••• •••• •••• <%= payment.cardNumber.slice(-4) %>
+                                            </div>
+                                            <div class="text-lg">
+                                                <% if (['4'].includes(payment.cardNumber.charAt(0))) { %>
+                                                    <span class="text-blue-500" title="Visa">💳</span>
+                                                <% } else if (['5'].includes(payment.cardNumber.charAt(0))) { %>
+                                                    <span class="text-red-500" title="Mastercard">💳</span>
+                                                <% } else if (['3'].includes(payment.cardNumber.charAt(0))) { %>
+                                                    <span class="text-blue-600" title="American Express">💳</span>
+                                                <% } else { %>
+                                                    <span class="text-gray-500" title="<%= __('getPayments.card_types.generic') %>">💳</span>
+                                                <% } %>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-gray-600 text-gray-200">
+                                            <%= payment.expMonth %>/<%= payment.expYear.toString().slice(-2) %>
+                                        </span>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <div class="flex items-center space-x-1">
+                                            <% if (payment.currency === 'USD') { %>
+                                                <span class="text-green-400 font-semibold">$</span>
+                                                <span class="text-gray-300">USD</span>
+                                            <% } else if (payment.currency === 'EUR') { %>
+                                                <span class="text-blue-400 font-semibold">€</span>
+                                                <span class="text-gray-300">EUR</span>
+                                            <% } else if (payment.currency === 'GBP') { %>
+                                                <span class="text-yellow-400 font-semibold">£</span>
+                                                <span class="text-gray-300">GBP</span>
+                                            <% } else { %>
+                                                <span class="text-gray-300"><%= payment.currency %></span>
+                                            <% } %>
+                                        </div>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <div class="text-emerald-400 font-bold text-lg">
+                                            <%= payment.amount %>
+                                        </div>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <div class="text-gray-300 text-sm">
+                                            <div class="font-medium">
+                                                <%= new Date(payment.createdAt).toLocaleDateString() %>
+                                            </div>
+                                            <div class="text-gray-400">
+                                                <%= new Date(payment.createdAt).toLocaleTimeString() %>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            <% }); %>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Mobile/Tablet Cards -->
+                <div class="lg:hidden space-y-4">
                     <% datePayments.forEach(payment => { %>
-                        <tr>
-                            <td data-label="Titular"><%= payment.nombreTitular %></td>
-                            <td data-label="Correo" class="contact-email"><%= payment.correo %></td>
-                            <td data-label="Tarjeta">
-                                <div class="card-details">
-                                    <span class="card-number">•••• •••• •••• <%= payment.cardNumber.slice(-4) %></span>
-                                    <span class="card-type">
-                                        <% if (['4'].includes(payment.cardNumber.charAt(0))) { %>
-                                            <i class="fab fa-cc-visa"></i>
-                                        <% } else if (['5'].includes(payment.cardNumber.charAt(0))) { %>
-                                            <i class="fab fa-cc-mastercard"></i>
-                                        <% } else if (['3'].includes(payment.cardNumber.charAt(0))) { %>
-                                            <i class="fab fa-cc-amex"></i>
-                                        <% } else { %>
-                                            <i class="fas fa-credit-card"></i>
-                                        <% } %>
+                        <div class="bg-gray-700/30 rounded-lg p-4 border border-gray-600 hover:border-gray-500 transition-colors duration-200">
+                            <div class="space-y-4">
+                                <!-- Header with avatar and amount -->
+                                <div class="flex justify-between items-start">
+                                    <div class="flex items-center space-x-3">
+                                        <div class="w-10 h-10 bg-gradient-to-br from-green-500 to-emerald-500 rounded-full flex items-center justify-center">
+                                            <span class="text-white font-semibold">
+                                                <%= payment.nombreTitular.charAt(0).toUpperCase() %>
+                                            </span>
+                                        </div>
+                                        <div>
+                                            <p class="text-white font-medium"><%= payment.nombreTitular %></p>
+                                            <p class="text-blue-400 text-sm"><%= payment.correo %></p>
+                                        </div>
+                                    </div>
+                                    <div class="text-right">
+                                        <div class="text-emerald-400 font-bold text-xl">
+                                            <%= payment.amount %>
+                                        </div>
+                                        <div class="flex items-center space-x-1 justify-end">
+                                            <% if (payment.currency === 'USD') { %>
+                                                <span class="text-green-400 font-semibold">$</span>
+                                                <span class="text-gray-300 text-sm">USD</span>
+                                            <% } else if (payment.currency === 'EUR') { %>
+                                                <span class="text-blue-400 font-semibold">€</span>
+                                                <span class="text-gray-300 text-sm">EUR</span>
+                                            <% } else if (payment.currency === 'GBP') { %>
+                                                <span class="text-yellow-400 font-semibold">£</span>
+                                                <span class="text-gray-300 text-sm">GBP</span>
+                                            <% } else { %>
+                                                <span class="text-gray-300 text-sm"><%= payment.currency %></span>
+                                            <% } %>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Card and expiry info -->
+                                <div class="flex justify-between items-center p-3 bg-gray-600/30 rounded-lg">
+                                    <div class="flex items-center space-x-2">
+                                        <div class="text-gray-300 font-mono text-sm">
+                                            •••• •••• •••• <%= payment.cardNumber.slice(-4) %>
+                                        </div>
+                                        <div class="text-lg">
+                                            <% if (['4'].includes(payment.cardNumber.charAt(0))) { %>
+                                                <span class="text-blue-500" title="Visa">💳</span>
+                                            <% } else if (['5'].includes(payment.cardNumber.charAt(0))) { %>
+                                                <span class="text-red-500" title="Mastercard">💳</span>
+                                            <% } else if (['3'].includes(payment.cardNumber.charAt(0))) { %>
+                                                <span class="text-blue-600" title="American Express">💳</span>
+                                            <% } else { %>
+                                                <span class="text-gray-500" title="<%= __('getPayments.card_types.generic') %>">💳</span>
+                                            <% } %>
+                                        </div>
+                                    </div>
+                                    <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-gray-600 text-gray-200">
+                                        <%= payment.expMonth %>/<%= payment.expYear.toString().slice(-2) %>
                                     </span>
                                 </div>
-                            </td>
-                            <td data-label="Expiración" class="card-expiry">
-                                <%= payment.expMonth %>/<%= payment.expYear.toString().slice(-2) %>
-                            </td>
-                            <td data-label="Moneda" class="currency">
-                                <% if (payment.currency === 'USD') { %>
-                                    $ USD
-                                <% } else if (payment.currency === 'EUR') { %>
-                                    € EUR
-                                <% } else if (payment.currency === 'GBP') { %>
-                                    £ GBP
-                                <% } else { %>
-                                    <%= payment.currency %>
-                                <% } %>
-                            </td>
-                            <td>
-                                <%=payment.amount%>
-                            </td>
-                            <td data-label="Fecha" class="contact-date">
-                                <%= new Date(payment.createdAt).toLocaleDateString() %>
-                                <br>
-                                <%= new Date(payment.createdAt).toLocaleTimeString() %>
-                            </td>
-                        </tr>
+
+                                <!-- Date -->
+                                <div class="pt-2 border-t border-gray-600">
+                                    <div class="flex justify-between items-center">
+                                        <span class="text-xs font-medium text-gray-400 uppercase tracking-wider">
+                                            <%= __('getPayments.table.date') %>
+                                        </span>
+                                        <div class="text-gray-300 text-sm text-right">
+                                            <div class="font-medium">
+                                                <%= new Date(payment.createdAt).toLocaleDateString() %>
+                                            </div>
+                                            <div class="text-gray-400">
+                                                <%= new Date(payment.createdAt).toLocaleTimeString() %>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     <% }); %>
-                </tbody>
-            </table>
-        <% } else { %>
-            <p>No hay registros de pagos disponibles.</p>
-        <% } %>
+                </div>
+
+                <!-- Footer with payment stats -->
+                <div class="mt-8 pt-6 border-t border-gray-700">
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <div class="text-center md:text-left">
+                            <div class="text-gray-400 text-sm">
+                                <%= __('getPayments.total_payments') %>
+                            </div>
+                            <div class="text-2xl font-bold text-white">
+                                <%= datePayments.length %>
+                            </div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-gray-400 text-sm">
+                                <%= __('getPayments.total_amount') %>
+                            </div>
+                            <div class="text-2xl font-bold text-emerald-400">
+                                $<%= datePayments.reduce((sum, payment) => sum + parseFloat(payment.amount), 0).toFixed(2) %>
+                            </div>
+                        </div>
+                        <div class="text-center md:text-right">
+                            <div class="text-gray-400 text-sm">
+                                <%= __('getPayments.last_updated') %>
+                            </div>
+                            <div class="text-white">
+                                <%= new Date().toLocaleDateString() %>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            <% } else { %>
+                <!-- Empty State -->
+                <div class="text-center py-12">
+                    <div class="w-24 h-24 mx-auto mb-4 bg-gray-700/50 rounded-full flex items-center justify-center">
+                        <svg class="w-12 h-12 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-white mb-2">
+                        <%= __('getPayments.empty_state.title') %>
+                    </h3>
+                    <p class="text-gray-400 max-w-md mx-auto">
+                        <%= __('getPayments.empty_state.message') %>
+                    </p>
+                </div>
+            <% } %>
+        </div>
     </div>
 </body>
 </html>

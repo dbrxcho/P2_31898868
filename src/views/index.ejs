@@ -4,98 +4,394 @@
         <title>BrachoFIT - Pagina de Informacion</title>
         <link rel="stylesheet" href="../css/styles.css">
         <link rel="stylesheet" href="../css/fonts.css">
+        <script src="https://cdn.tailwindcss.com"></script>
     </head>
     <body>
-        <div id="header">
-            <h1> <img id="logo" src="../imagenes/brachofit.png" alt="BrachoFIT Gym LOGO"></h1>
-        </div>
-        </div>
-        <div id="background">
-            <div id="menu">
-                
-            <div id="volver">
-                <a id="volpag" href="/getPayment"><b>Pagos</b></a>
-            </div>
-            <div id="volver">
-                <a id="volpag" href="/admin/contacts"><b>Contactos</b></a>
-            </div>
-                <h2 id="slogan">CAMBIA TU MENTALIDAD, CAMBIA TU VIDA</h2>
-                <h3 id="descubre">¡Descubre el poder del gimnasio y el entrenamiento personalizado!</h3>
-                <h4 id="hbeneficios">Beneficios de entrenar en nuestro gimnasio</h4>
-                <ul id="beneficios">
-                    <li><b class="negrita">Acceso a equipamiento profesional:</b> Máquinas de última tecnología y pesas para un entrenamiento completo.</li>
-                    <li><b class="negrita">Ambiente motivador:</b> Rodéate de personas con objetivos similares y mantén la disciplina.</li>
-                    <li><b class="negrita">Clases grupales dinámicas:</b> Yoga, spinning, HIIT y más para entrenar de forma divertida.</li>
-                    <li><b class="negrita">Mejora tu salud física y mental:</b> Reduce el estrés, mejora tu estado de ánimo y fortalece tu cuerpo.</li>
-                    <li><b class="negrita">Rutinas estructuradas:</b> Entrenamientos organizados para lograr tus metas con eficacia.</li>
-                </ul>
-                <h4 id="hventajas">Ventajas del entrenamiento personalizado</h4>
-                <ul id="ventajas">
-                    <li><b class="negrita">Programas adaptados a ti:</b> Diseñamos planes específicos para tu nivel y objetivos.</li>
-                    <li><b class="negrita">Corrección de técnica:</b> Evita lesiones y maximiza resultados con supervisión experta.</li>
-                    <li><b class="negrita">Resultados más rápidos:</b> Al enfocarnos en lo que realmente necesitas, avanzas más rápido.</li>
-                    <li><b class="negrita">Motivación y seguimiento constante:</b> Tu entrenador te ayuda a superar límites y alcanzar el éxito.</li>
-                    <li><b class="negrita">Flexibilidad en horarios y entrenamientos:</b> Adapta tu rutina a tu estilo de vida sin complicaciones.</li>
-                </ul>
-                <h4 id="inscripcion"><a href="/entrenamiento">INSCRÍBETE AQUÍ</a></h4>
-                <p id="beneficios-texto">
-                    "Entrenar en el gimnasio con un plan personalizado ofrece múltiples beneficios para la salud y el bienestar. 
-                    No solo mejora la condición física y fortalece el cuerpo, sino que también optimiza los resultados al adaptar los ejercicios a las necesidades y objetivos individuales. 
-                    Contar con la orientación de un entrenador permite una correcta ejecución de los movimientos, reduciendo el riesgo de lesiones y maximizando la eficiencia del entrenamiento. 
-                    Además, favorece la motivación y la constancia, brindando un apoyo profesional que impulsa el progreso. 
-                    Sumado a esto, el ejercicio regular mejora la salud cardiovascular, la resistencia y el estado de ánimo, convirtiendo cada sesión en un paso hacia un estilo de vida más saludable y equilibrado."
-                </p>
-                <h4 id="hbusqueda">¿Qué estás buscando?</h4>
-                <ul id="busqueda">
-                    <li><a href="/entrenamiento">Entrenamiento Personalizado</a></li>
-                    <li>Suplementos</li>
-                    <li>Articulos para el gimnasio</li>
-                    <li>Entrenadores</li>
-                    <li>Horarios</li>
-                    <li>Precios</li>
-                </ul>
-                <h3 id="contacto">Contacto</h3>
-                <ul id="redes">
-                    <li><b>Telefono: +584246434757</b></li>
-                    <li><b>Correo: danielbracho31898868@gmail.com</b></li>
-                    <li><a href="https://www.instagram.com/brachoddd/" target="_blank" title="Siguenos en Instagram">Instagram</a></li>
-                    <li><a href="https://www.facebook.com/brachofit/" target="_blank" title="Siguenos en Facebook">Facebook</a></li>
-                    <li><a href="https://www.tiktok.com/@brachoddd" target="_blank" title="Siguenos en TikTok">TikTok</a></li>
-                    <li><b>Ubicacion: Urb. Jorge Hernández, Punto Fijo, Falcón, Venezuela</b></li>
-                </ul>
-                
-                    <form id="formulario">
-                        <ul class="form_datos">
-                            <h2>Formulario de Contacto</h2>
-                            <li class="li" >
-                            <input class="datos datoss" type="text" id="nombre" placeholder="Nombre" required minlength="3" alt="Nombre del cliente">
-                            </li>
-                            <li class="li">
-                            <input class="datos datoss" type="email" id="email" placeholder="Correo Electrónico" required alt="Correo electrónico del cliente">
-                            </li>
-                            
-                            <li class="li">
-                            <textarea class="datos datoss" id="comentario" placeholder="cualquier cosa" required></textarea>
-                            </li>
-                            
-                            <li class="li">
-                            <input class="datos" type="submit" value="Registrar" alt="Enviar formulario de pago">
-                            <input class="datos" type="reset" value="Limpiar" alt="Limpiar formulario de pago">
-                            </li>
-                        </ul>
-                
-                
-                    </form>
-            </div>
-        </div>
+    <%-include('partials/nav')%>
+    <div class="mt-20" id="header">
+        <h1> <img id="logo" src="../imagenes/brachofit.png" alt="BrachoFIT Gym LOGO"></h1>
+    </div>
+    <div id="background">
+        <div id="menu">
+            <h2 id="slogan"><%= __('index.slogan') %></h2>
+            <h3 id="descubre"><%= __('index.discover') %></h3>
+            <h4 id="hbeneficios"><%= __('index.gym_benefits_title') %></h4>
+            <ul id="beneficios">
+                <li><b class="negrita"><%= __('index.gym_benefits.equipment') %></b> <%= __('index.gym_benefits.equipment_desc') %></li>
+                <li><b class="negrita"><%= __('index.gym_benefits.environment') %></b> <%= __('index.gym_benefits.environment_desc') %></li>
+                <li><b class="negrita"><%= __('index.gym_benefits.classes') %></b> <%= __('index.gym_benefits.classes_desc') %></li>
+                <li><b class="negrita"><%= __('index.gym_benefits.health') %></b> <%= __('index.gym_benefits.health_desc') %></li>
+                <li><b class="negrita"><%= __('index.gym_benefits.routines') %></b> <%= __('index.gym_benefits.routines_desc') %></li>
+            </ul>
+            <h4 id="hventajas"><%= __('index.personal_training_title') %></h4>
+            <ul id="ventajas">
+                <li><b class="negrita"><%= __('index.personal_training.programs') %></b> <%= __('index.personal_training.programs_desc') %></li>
+                <li><b class="negrita"><%= __('index.personal_training.technique') %></b> <%= __('index.personal_training.technique_desc') %></li>
+                <li><b class="negrita"><%= __('index.personal_training.results') %></b> <%= __('index.personal_training.results_desc') %></li>
+                <li><b class="negrita"><%= __('index.personal_training.motivation') %></b> <%= __('index.personal_training.motivation_desc') %></li>
+                <li><b class="negrita"><%= __('index.personal_training.flexibility') %></b> <%= __('index.personal_training.flexibility_desc') %></li>
+            </ul>
 
-        <div id="footer">
-            <p>&copy; 2025 BrachoFIT. Todos los derechos reservados.</p>
+            <!-- Nueva sección de servicios -->
+            <h4 id="hservicios"><%= __('index.services_title') %></h4>
+            <div id="servicios">
+                <div class="servicio">
+                    <h5><%= __('index.services.membership.title') %></h5>
+                    <p><%= __('index.services.membership.description') %></p>
+                    <button class="btn-adquirir" onclick="window.location.href='/payment'">
+                        <%= __('index.services.acquire_button') %>
+                    </button>
+                </div>
+                <div class="servicio">
+                    <h5><%= __('index.services.personal_training.title') %></h5>
+                    <p><%= __('index.services.personal_training.description') %></p>
+                    <button class="btn-adquirir" onclick="window.location.href='/payment'">
+                        <%= __('index.services.acquire_button') %>
+                    </button>
+                </div>
+                <div class="servicio">
+                    <h5><%= __('index.services.nutrition.title') %></h5>
+                    <p><%= __('index.services.nutrition.description') %></p>
+                    <button class="btn-adquirir" onclick="window.location.href='/payment'">
+                        <%= __('index.services.acquire_button') %>
+                    </button>
+                </div>
+                <div class="servicio">
+                    <h5><%= __('index.services.classes.title') %></h5>
+                    <p><%= __('index.services.classes.description') %></p>
+                    <button class="btn-adquirir" onclick="window.location.href='/payment'">
+                        <%= __('index.services.acquire_button') %>
+                    </button>
+                </div>
+            </div>
+
+            <h4 id="inscripcion"><a href="/entrenamiento"><%= __('index.signup_here') %></a></h4>
+            <p id="beneficios-texto">
+                <%= __('index.benefits_text') %>
+            </p>
+            <h4 id="hbusqueda"><%= __('index.what_looking_for') %></h4>
+            <ul id="busqueda">
+                <li><a href="/entrenamiento"><%= __('index.search_options.personal_training') %></a></li>
+                <li><%= __('index.search_options.supplements') %></li>
+                <li><%= __('index.search_options.gym_articles') %></li>
+                <li><%= __('index.search_options.trainers') %></li>
+                <li><%= __('index.search_options.schedules') %></li>
+                <li><%= __('index.search_options.prices') %></li>
+            </ul>
+            <h3 id="contacto"><%= __('index.contact') %></h3>
+            <ul id="redes">
+                <li><b><%= __('index.contact_info.phone') %>: +584246434757</b></li>
+                <li><b><%= __('index.contact_info.email') %>: danielbracho31898868@gmail.com</b></li>
+                <li><a href="https://www.instagram.com/brachoddd/" target="_blank" title="<%= __('index.contact_info.follow_instagram') %>">Instagram</a></li>
+                <li><a href="https://www.facebook.com/brachofit/" target="_blank" title="<%= __('index.contact_info.follow_facebook') %>">Facebook</a></li>
+                <li><a href="https://www.tiktok.com/@brachoddd" target="_blank" title="<%= __('index.contact_info.follow_tiktok') %>">TikTok</a></li>
+                <li><b><%= __('index.contact_info.location') %>: Urb. Jorge Hernández, Punto Fijo, Falcón, Venezuela</b></li>
+            </ul>
+
+            <!-- SECCIÓN SERVICIOS -->
+<section id="servicios" class="py-20 bg-gradient-to-br from-gray-900 via-gray-800 to-black">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <!-- Título de la sección -->
+    <div class="text-center mb-16">
+      <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">
+        <span class="bg-gradient-to-r from-orange-400 to-red-500 bg-clip-text text-transparent">
+          <%= __('index.services.title') %>
+        </span>
+      </h2>
+      <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+        <%= __('index.services.subtitle') %>
+      </p>
+      <div class="w-24 h-1 bg-gradient-to-r from-orange-400 to-red-500 mx-auto mt-6 rounded-full"></div>
+    </div>
+
+    <!-- Grid de servicios -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      
+      <!-- Servicio 1: Membresía Completa -->
+      <div class="bg-gray-800 rounded-2xl p-8 hover:bg-gray-700 transition-all duration-300 transform hover:scale-105 hover:shadow-2xl border border-gray-700 hover:border-orange-500">
+        <div class="text-center mb-6">
+          <div class="w-16 h-16 mx-auto mb-4 bg-gradient-to-r from-orange-400 to-red-500 rounded-full flex items-center justify-center">
+            <i class="fas fa-dumbbell text-white text-2xl"></i>
+          </div>
+          <h3 class="text-2xl font-bold text-white mb-2">
+            <%= __('index.services.membership.title') %>
+          </h3>
+          <p class="text-gray-300 text-sm leading-relaxed">
+            <%= __('index.services.membership.description') %>
+          </p>
         </div>
         
+        <div class="space-y-3 mb-6">
+          <div class="flex items-center text-gray-300">
+            <i class="fas fa-check text-green-400 mr-3"></i>
+            <span class="text-sm"><%= __('index.services.membership.feature1') %></span>
+          </div>
+          <div class="flex items-center text-gray-300">
+            <i class="fas fa-check text-green-400 mr-3"></i>
+            <span class="text-sm"><%= __('index.services.membership.feature2') %></span>
+          </div>
+          <div class="flex items-center text-gray-300">
+            <i class="fas fa-check text-green-400 mr-3"></i>
+            <span class="text-sm"><%= __('index.services.membership.feature3') %></span>
+          </div>
+        </div>
+
+        <div class="text-center mb-6">
+          <span class="text-3xl font-bold text-white">
+            <%= __('index.services.membership.price') %>
+          </span>
+          <span class="text-gray-400 text-sm">/<%= __('index.services.per_month') %></span>
+        </div>
+
+        <a href="/payment" class="block w-full bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg text-center">
+          <%= __('index.services.acquire_button') %>
+        </a>
+      </div>
+
+      <!-- Servicio 2: Entrenamiento Personal -->
+      <div class="bg-gray-800 rounded-2xl p-8 hover:bg-gray-700 transition-all duration-300 transform hover:scale-105 hover:shadow-2xl border border-gray-700 hover:border-orange-500">
+        <div class="text-center mb-6">
+          <div class="w-16 h-16 mx-auto mb-4 bg-gradient-to-r from-orange-400 to-red-500 rounded-full flex items-center justify-center">
+            <i class="fas fa-user-friends text-white text-2xl"></i>
+          </div>
+          <h3 class="text-2xl font-bold text-white mb-2">
+            <%= __('index.services.personal_training.title') %>
+          </h3>
+          <p class="text-gray-300 text-sm leading-relaxed">
+            <%= __('index.services.personal_training.description') %>
+          </p>
+        </div>
+        
+        <div class="space-y-3 mb-6">
+          <div class="flex items-center text-gray-300">
+            <i class="fas fa-check text-green-400 mr-3"></i>
+            <span class="text-sm"><%= __('index.services.personal_training.feature1') %></span>
+          </div>
+          <div class="flex items-center text-gray-300">
+            <i class="fas fa-check text-green-400 mr-3"></i>
+            <span class="text-sm"><%= __('index.services.personal_training.feature2') %></span>
+          </div>
+          <div class="flex items-center text-gray-300">
+            <i class="fas fa-check text-green-400 mr-3"></i>
+            <span class="text-sm"><%= __('index.services.personal_training.feature3') %></span>
+          </div>
+        </div>
+
+        <div class="text-center mb-6">
+          <span class="text-3xl font-bold text-white">
+            <%= __('index.services.personal_training.price') %>
+          </span>
+          <span class="text-gray-400 text-sm">/<%= __('index.services.per_session') %></span>
+        </div>
+
+        <a href="/payment" class="block w-full bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg text-center">
+          <%= __('index.services.acquire_button') %>
+        </a>
+      </div>
+
+      <!-- Servicio 3: Asesoría Nutricional -->
+      <div class="bg-gray-800 rounded-2xl p-8 hover:bg-gray-700 transition-all duration-300 transform hover:scale-105 hover:shadow-2xl border border-gray-700 hover:border-orange-500">
+        <div class="text-center mb-6">
+          <div class="w-16 h-16 mx-auto mb-4 bg-gradient-to-r from-orange-400 to-red-500 rounded-full flex items-center justify-center">
+            <i class="fas fa-apple-alt text-white text-2xl"></i>
+          </div>
+          <h3 class="text-2xl font-bold text-white mb-2">
+            <%= __('index.services.nutrition.title') %>
+          </h3>
+          <p class="text-gray-300 text-sm leading-relaxed">
+            <%= __('index.services.nutrition.description') %>
+          </p>
+        </div>
+        
+        <div class="space-y-3 mb-6">
+          <div class="flex items-center text-gray-300">
+            <i class="fas fa-check text-green-400 mr-3"></i>
+            <span class="text-sm"><%= __('index.services.nutrition.feature1') %></span>
+          </div>
+          <div class="flex items-center text-gray-300">
+            <i class="fas fa-check text-green-400 mr-3"></i>
+            <span class="text-sm"><%= __('index.services.nutrition.feature2') %></span>
+          </div>
+          <div class="flex items-center text-gray-300">
+            <i class="fas fa-check text-green-400 mr-3"></i>
+            <span class="text-sm"><%= __('index.services.nutrition.feature3') %></span>
+          </div>
+        </div>
+
+        <div class="text-center mb-6">
+          <span class="text-3xl font-bold text-white">
+            <%= __('index.services.nutrition.price') %>
+          </span>
+          <span class="text-gray-400 text-sm">/<%= __('index.services.per_month') %></span>
+        </div>
+
+        <a href="/payment" class="block w-full bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg text-center">
+          <%= __('index.services.acquire_button') %>
+        </a>
+      </div>
+
+      <!-- Servicio 4: Clases Grupales -->
+      <div class="bg-gray-800 rounded-2xl p-8 hover:bg-gray-700 transition-all duration-300 transform hover:scale-105 hover:shadow-2xl border border-gray-700 hover:border-orange-500">
+        <div class="text-center mb-6">
+          <div class="w-16 h-16 mx-auto mb-4 bg-gradient-to-r from-orange-400 to-red-500 rounded-full flex items-center justify-center">
+            <i class="fas fa-users text-white text-2xl"></i>
+          </div>
+          <h3 class="text-2xl font-bold text-white mb-2">
+            <%= __('index.services.classes.title') %>
+          </h3>
+          <p class="text-gray-300 text-sm leading-relaxed">
+            <%= __('index.services.classes.description') %>
+          </p>
+        </div>
+        
+        <div class="space-y-3 mb-6">
+          <div class="flex items-center text-gray-300">
+            <i class="fas fa-check text-green-400 mr-3"></i>
+            <span class="text-sm"><%= __('index.services.classes.feature1') %></span>
+          </div>
+          <div class="flex items-center text-gray-300">
+            <i class="fas fa-check text-green-400 mr-3"></i>
+            <span class="text-sm"><%= __('index.services.classes.feature2') %></span>
+          </div>
+          <div class="flex items-center text-gray-300">
+            <i class="fas fa-check text-green-400 mr-3"></i>
+            <span class="text-sm"><%= __('index.services.classes.feature3') %></span>
+          </div>
+        </div>
+
+        <div class="text-center mb-6">
+          <span class="text-3xl font-bold text-white">
+            <%= __('index.services.classes.price') %>
+          </span>
+          <span class="text-gray-400 text-sm">/<%= __('index.services.per_class') %></span>
+        </div>
+
+        <a href="/payment" class="block w-full bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg text-center">
+          <%= __('index.services.acquire_button') %>
+        </a>
+      </div>
+
+      <!-- Servicio 5: Plan Premium -->
+      <div class="bg-gradient-to-br from-orange-900 to-red-900 rounded-2xl p-8 hover:from-orange-800 hover:to-red-800 transition-all duration-300 transform hover:scale-105 hover:shadow-2xl border-2 border-orange-500 relative overflow-hidden">
+        <div class="absolute top-0 right-0 bg-gradient-to-l from-orange-400 to-red-500 text-white px-3 py-1 text-xs font-bold rounded-bl-lg">
+          <%= __('index.services.premium.badge') %>
+        </div>
+        
+        <div class="text-center mb-6">
+          <div class="w-16 h-16 mx-auto mb-4 bg-gradient-to-r from-yellow-400 to-orange-500 rounded-full flex items-center justify-center">
+            <i class="fas fa-crown text-white text-2xl"></i>
+          </div>
+          <h3 class="text-2xl font-bold text-white mb-2">
+            <%= __('index.services.premium.title') %>
+          </h3>
+          <p class="text-gray-200 text-sm leading-relaxed">
+            <%= __('index.services.premium.description') %>
+          </p>
+        </div>
+        
+        <div class="space-y-3 mb-6">
+          <div class="flex items-center text-gray-200">
+            <i class="fas fa-check text-yellow-400 mr-3"></i>
+            <span class="text-sm"><%= __('index.services.premium.feature1') %></span>
+          </div>
+          <div class="flex items-center text-gray-200">
+            <i class="fas fa-check text-yellow-400 mr-3"></i>
+            <span class="text-sm"><%= __('index.services.premium.feature2') %></span>
+          </div>
+          <div class="flex items-center text-gray-200">
+            <i class="fas fa-check text-yellow-400 mr-3"></i>
+            <span class="text-sm"><%= __('index.services.premium.feature3') %></span>
+          </div>
+        </div>
+
+        <div class="text-center mb-6">
+          <span class="text-3xl font-bold text-white">
+            <%= __('index.services.premium.price') %>
+          </span>
+          <span class="text-gray-300 text-sm">/<%= __('index.services.per_month') %></span>
+        </div>
+
+        <a href="/payment" class="block w-full bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-yellow-600 hover:to-orange-600 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg text-center">
+          <%= __('index.services.acquire_button') %>
+        </a>
+      </div>
+
+      <!-- Servicio 6: Terapia Deportiva -->
+      <div class="bg-gray-800 rounded-2xl p-8 hover:bg-gray-700 transition-all duration-300 transform hover:scale-105 hover:shadow-2xl border border-gray-700 hover:border-orange-500">
+        <div class="text-center mb-6">
+          <div class="w-16 h-16 mx-auto mb-4 bg-gradient-to-r from-orange-400 to-red-500 rounded-full flex items-center justify-center">
+            <i class="fas fa-hand-holding-medical text-white text-2xl"></i>
+          </div>
+          <h3 class="text-2xl font-bold text-white mb-2">
+            <%= __('index.services.therapy.title') %>
+          </h3>
+          <p class="text-gray-300 text-sm leading-relaxed">
+            <%= __('index.services.therapy.description') %>
+          </p>
+        </div>
+        
+        <div class="space-y-3 mb-6">
+          <div class="flex items-center text-gray-300">
+            <i class="fas fa-check text-green-400 mr-3"></i>
+            <span class="text-sm"><%= __('index.services.therapy.feature1') %></span>
+          </div>
+          <div class="flex items-center text-gray-300">
+            <i class="fas fa-check text-green-400 mr-3"></i>
+            <span class="text-sm"><%= __('index.services.therapy.feature2') %></span>
+          </div>
+          <div class="flex items-center text-gray-300">
+            <i class="fas fa-check text-green-400 mr-3"></i>
+            <span class="text-sm"><%= __('index.services.therapy.feature3') %></span>
+          </div>
+        </div>
+
+        <div class="text-center mb-6">
+          <span class="text-3xl font-bold text-white">
+            <%= __('index.services.therapy.price') %>
+          </span>
+          <span class="text-gray-400 text-sm">/<%= __('index.services.per_session') %></span>
+        </div>
+
+        <a href="/payment" class="block w-full bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg text-center">
+          <%= __('index.services.acquire_button') %>
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>
+            
+            <form id="formulario">
+                <ul class="form_datos">
+                    <h2><%= __('index.contact_form.title') %></h2>
+                    <li class="li" >
+                    <input class="datos datoss" type="text" id="nombre" placeholder="<%= __('index.contact_form.name_placeholder') %>" required minlength="3" alt="<%= __('index.contact_form.name_alt') %>">
+                    </li>
+                    <li class="li">
+                    <input class="datos datoss" type="email" id="email" placeholder="<%= __('index.contact_form.email_placeholder') %>" required alt="<%= __('index.contact_form.email_alt') %>">
+                    </li>
+                    
+                    <li class="li">
+                    <textarea class="datos datoss" id="comentario" placeholder="<%= __('index.contact_form.comment_placeholder') %>" required></textarea>
+                    </li>
+                    
+                    <li class="li">
+                    <input class="datos" type="submit" value="<%= __('index.contact_form.submit_button') %>" alt="<%= __('index.contact_form.submit_alt') %>">
+                    <input class="datos" type="reset" value="<%= __('index.contact_form.reset_button') %>" alt="<%= __('index.contact_form.reset_alt') %>">
+                    </li>
+                </ul>
+            </form>
+        </div>
+    </div>
+
+    <div id="footer">
+        <p>&copy; 2025 BrachoFIT. <%= __('index.footer.rights_reserved') %></p>
+    </div>
+    
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src='/js/animacion.js'></script>
     <script src='/js/fetch.js'></script>
     <script src="/js/desplegable.js"></script>
-    </body>
+</body>
 </html>

@@ -6,43 +6,160 @@
     <title>Registros de Contactos</title>
     <link rel="stylesheet" href="/css/table.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-    <div class="contacts-container">
-        <div class="contacts-header">
-            <h1 class="contacts-title">Contactos y comentarios</h1>
-        </div>
+<body class="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-black">
+    <%-include('partials/nav')%>
+    <div class="mt-20 container mx-auto px-4 py-8">
+        <div class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-xl shadow-2xl p-6 md:p-8">
+            <!-- Header -->
+            <div class="mb-8">
+                <h1 class="text-3xl md:text-4xl font-bold text-white mb-2">
+                    <%= __('contactos.title') %>
+                </h1>
+                <p class="text-gray-400 text-lg">
+                    <%= __('contactos.subtitle') %>
+                </p>
+            </div>
 
-        <% if (contacts.length > 0) { %>
-            <table class="contacts-table">
-                <thead>
-                    <tr>
-                        <th>Nombre</th>
-                        <th>Email</th>
-                        <th>Comentario</th>
-                        <th>IP</th>
-                        <th>Fecha</th>
-                    </tr>
-                </thead>
-                <tbody>
+            <% if (contacts.length > 0) { %>
+                <!-- Desktop Table -->
+                <div class="hidden md:block overflow-x-auto">
+                    <table class="w-full bg-gray-700/30 rounded-lg overflow-hidden">
+                        <thead class="bg-gradient-to-r from-blue-600 to-purple-600">
+                            <tr>
+                                <th class="px-6 py-4 text-left text-sm font-semibold text-white uppercase tracking-wider">
+                                    <%= __('contactos.table.name') %>
+                                </th>
+                                <th class="px-6 py-4 text-left text-sm font-semibold text-white uppercase tracking-wider">
+                                    <%= __('contactos.table.email') %>
+                                </th>
+                                <th class="px-6 py-4 text-left text-sm font-semibold text-white uppercase tracking-wider">
+                                    <%= __('contactos.table.comment') %>
+                                </th>
+                                <th class="px-6 py-4 text-left text-sm font-semibold text-white uppercase tracking-wider">
+                                    <%= __('contactos.table.ip') %>
+                                </th>
+                                <th class="px-6 py-4 text-left text-sm font-semibold text-white uppercase tracking-wider">
+                                    <%= __('contactos.table.date') %>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-gray-600">
+                            <% contacts.forEach((contact, index) => { %>
+                                <tr class="hover:bg-gray-600/30 transition-colors duration-200 <%= index % 2 === 0 ? 'bg-gray-700/20' : 'bg-gray-800/20' %>">
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <div class="text-white font-medium"><%= contact.nombre %></div>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <div class="text-blue-400 font-medium"><%= contact.email %></div>
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        <div class="text-gray-300 max-w-xs lg:max-w-md xl:max-w-lg truncate" title="<%= contact.comentario %>">
+                                            <%= contact.comentario %>
+                                        </div>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-gray-600 text-gray-200">
+                                            <%= contact.ip %>
+                                        </span>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <div class="text-gray-300 text-sm">
+                                            <div class="font-medium">
+                                                <%= new Date(contact.createdAt).toLocaleDateString() %>
+                                            </div>
+                                            <div class="text-gray-400">
+                                                <%= new Date(contact.createdAt).toLocaleTimeString() %>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            <% }); %>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Mobile Cards -->
+                <div class="md:hidden space-y-4">
                     <% contacts.forEach(contact => { %>
-                        <tr>
-                            <td data-label="Nombre"><%= contact.nombre %></td>
-                            <td data-label="Email" class="contact-email"><%= contact.email %></td>
-                            <td data-label="Comentario"><%= contact.comentario %></td>
-                            <td data-label="IP" class="contact-ip"><%= contact.ip %></td>
-                            <td data-label="Fecha" class="contact-date">
-                                <%= new Date(contact.createdAt).toLocaleDateString() %>
-                                <br>
-                                <%= new Date(contact.createdAt).toLocaleTimeString() %>
-                            </td>
-                        </tr>
+                        <div class="bg-gray-700/30 rounded-lg p-4 border border-gray-600 hover:border-gray-500 transition-colors duration-200">
+                            <div class="space-y-3">
+                                <div class="flex justify-between items-start">
+                                    <div>
+                                        <p class="text-xs font-medium text-gray-400 uppercase tracking-wider">
+                                            <%= __('contactos.table.name') %>
+                                        </p>
+                                        <p class="text-white font-medium"><%= contact.nombre %></p>
+                                    </div>
+                                    <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-gray-600 text-gray-200">
+                                        <%= contact.ip %>
+                                    </span>
+                                </div>
+                                
+                                <div>
+                                    <p class="text-xs font-medium text-gray-400 uppercase tracking-wider">
+                                        <%= __('contactos.table.email') %>
+                                    </p>
+                                    <p class="text-blue-400 font-medium"><%= contact.email %></p>
+                                </div>
+                                
+                                <div>
+                                    <p class="text-xs font-medium text-gray-400 uppercase tracking-wider">
+                                        <%= __('contactos.table.comment') %>
+                                    </p>
+                                    <p class="text-gray-300 leading-relaxed"><%= contact.comentario %></p>
+                                </div>
+                                
+                                <div>
+                                    <p class="text-xs font-medium text-gray-400 uppercase tracking-wider">
+                                        <%= __('contactos.table.date') %>
+                                    </p>
+                                    <p class="text-gray-300 text-sm">
+                                        <%= new Date(contact.createdAt).toLocaleDateString() %>
+                                        <span class="text-gray-400 ml-2">
+                                            <%= new Date(contact.createdAt).toLocaleTimeString() %>
+                                        </span>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
                     <% }); %>
-                </tbody>
-            </table>
-        <% } else { %>
-            <p>No hay registros de contactos disponibles.</p>
-        <% } %>
+                </div>
+
+                <!-- Footer with contact count -->
+                <div class="mt-8 pt-6 border-t border-gray-700">
+                    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between">
+                        <div class="text-gray-400">
+                            <%= __('contactos.total_contacts') %>: 
+                            <span class="font-semibold text-white"><%= contacts.length %></span>
+                        </div>
+                        <div class="text-gray-400 text-sm mt-2 sm:mt-0">
+                            <%= __('contactos.last_updated') %>: 
+                            <span class="text-gray-300">
+                                <%= new Date().toLocaleDateString() %>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+            <% } else { %>
+                <!-- Empty State -->
+                <div class="text-center py-12">
+                    <div class="w-24 h-24 mx-auto mb-4 bg-gray-700/50 rounded-full flex items-center justify-center">
+                        <svg class="w-12 h-12 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2M4 13h2m13-8L9 5l10 8M9 5v8m10-8v8"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-white mb-2">
+                        <%= __('contactos.empty_state.title') %>
+                    </h3>
+                    <p class="text-gray-400 max-w-md mx-auto">
+                        <%= __('contactos.empty_state.message') %>
+                    </p>
+                </div>
+            <% } %>
+        </div>
     </div>
 </body>
 </html>
