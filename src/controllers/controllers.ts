@@ -110,6 +110,15 @@ class ContactsController {
     }
   }
 
+    entrenamiento(req: Request, res: Response): void {
+    try {
+      res.render('entrenamiento', { isAdmin: false, view: 'entrenamiento' });
+    } catch (error: any) {
+      console.error('Error:', error);
+      res.status(500).render('error', { message: 'Error al cargar la vista de entrenamiento' });
+    }
+  }
+
   async add(req: Request, res: Response): Promise<void> {
     const SECRET_KEY = process.env.SECRET_KEYY;
     const { email, nombre, comentario } = req.body;
