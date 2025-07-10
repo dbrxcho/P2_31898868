@@ -164,7 +164,7 @@ class ContactsController {
         dirección IP: ${ip}
       fecha y hora: ${new Date()}`;
 
-      const recipients = ['programacion2ais@yopmail.com', 'Argentoinfabri@gmail.com'];
+      const recipients = ['programacion2ais@yopmail.com', 'fuentesdaviannys@gmail.com'];
       const result = await sendEmail(recipients, subject, message);
 
       if (!result.success) {
@@ -200,8 +200,7 @@ class ContactsController {
   payment(req: Request, res: Response): Promise<void> {
     return new Promise<void>((resolve) => {
       try {
-        const locale = req.getLocale();
-        res.render('payment', { isAdmin: true,view:'payment',locale });
+        res.render('payment', { isAdmin: true,view:'payment'});
         resolve();
       } catch (error: any) {
         console.error('Error:', error);
@@ -277,10 +276,10 @@ class ContactsController {
   async getPayment(req: Request, res: Response): Promise<void> {
     try {
       const datePayments = await ContactosModel.getAllPayments();
-      res.render('getPayments', { datePayments, isAdmin: true,view:'getPayment'});
+      res.render('getPayments', {datePayments, isAdmin: true,view:'getPayment'});
     } catch (error: any) {
       console.error('Error:', error);
-      res.status(500).render('error', { 
+      res.status(500).render('error',{ 
         message: 'Error al obtener pagos',
         error: error.message
       });
@@ -300,27 +299,18 @@ class ContactsController {
     }
   }
 
-  async index(req: Request, res: Response):void{
+  async index(req: Request, res: Response): Promise<void> {
     try {
-      res.render('index',{
+      res.render('index', {
         sitioKey: process.env.SITIO_KEY,
         isAdmin: false,
-        title: 'MOLDEA TUS IDEAS',
-        description: 'pagina de fabrizzio de programacion II',
-        imageUrl:'https://p2-31898868-2.onrender.com/img/img4g.jpg',
-        pageUrl:'https://p2-31898868-2.onrender.com',
+        title: 'brachofit',
+        description: 'dbxcho prog 2 pagina',
+        imageUrl: 'https://p2-31898868-2.onrender.com/imagenes/brachofit.png',
+        pageUrl: 'https://p2-31898868-2.onrender.com',
         view:'index'
       });
-    }catch(error:any) {
-      console.error(error.message);
-      res.status(500).send('Error en el servidor');
-    }
-  }
-
-  entrenamiento(req:Request,res:Response):void{
-    try{
-     res.render('entrenamiento');
-    }catch(error:any){
+    } catch (error: any) {
       console.error(error.message);
       res.status(500).send('Error en el servidor');
     }
@@ -329,7 +319,7 @@ class ContactsController {
   login(req: Request, res: Response): void {
     formType = req.query.form as string;
     try {
-      res.render('auth', { formType, isAdmin: false,view:'auth' });
+      res.render('auth', { formType, isAdmin: false,view:'auth'});
     } catch (error: any) {
       console.error('', error.message);
       res.status(500).json({
@@ -396,56 +386,56 @@ class ContactsController {
   }
 
   async loginPost(req: Request, res: Response):Promise<void>{
-    try {
-      const { email, password } = req.body;
+  try {
+    const { email, password } = req.body;
 
-      if (!email || !password) {
-        res.json({ status: false, message: '¡Faltan credenciales!' });
-        return;
-      }
+    if (!email || !password) {
+      res.json({ status: false, message: '¡Faltan credenciales!' });
+      return;
+    }
 
     // Llamar al modelo con la nueva firma de retorno tipada
-      const result = await ContactosModel.loginPost({ email, password });
+    const result = await ContactosModel.loginPost({ email, password });
 
-      if (!result.success) {
-        res.json({ status: false, message: result.message || 'Credenciales incorrectas' });
-        return;
-      }
-
-      if (result.user) {
-        req.session.userId = result.user.id;
-        req.session.username = result.user.username || result.user.email;
-
-        res.json({
-          status: true,
-          message: '¡Bienvenido al sistema!',
-          user: {
-            id: result.user.id,
-            email: result.user.email,
-            username: result.user.username
-          }
-        });
-        return;
-      }
-
-      res.json({ status: false, message: 'Error en la autenticación' });
-
-    } catch (error) {
-      console.error('Error en login:', error);
-      res.json({ status: false, message: 'Error interno del servidor' });
+    if (!result.success) {
+      res.json({ status: false, message: result.message || 'Credenciales incorrectas' });
+      return;
     }
-  }
 
-  async logout(req: Request, res: Response): Promise<void> {
-    req.session.destroy((err:any) => {
-      if (err) {
-        console.error('Error al cerrar sesión:', err);
-        res.status(500).json({ message: 'Error al cerrar sesión' });
-        return;
-      }
-      res.redirect('/');
-    });
+    if (result.user) {
+      req.session.userId = result.user.id;
+      req.session.username = result.user.username || result.user.email;
+
+      res.json({
+        status: true,
+        message: '¡Bienvenido al sistema!',
+        user: {
+          id: result.user.id,
+          email: result.user.email,
+          username: result.user.username
+        }
+      });
+      return;
+    }
+
+    res.json({ status: false, message: 'Error en la autenticación' });
+
+  } catch (error) {
+    console.error('Error en login:', error);
+    res.json({ status: false, message: 'Error interno del servidor' });
   }
+}
+
+async logout(req: Request, res: Response): Promise<void> {
+  req.session.destroy((err:any) => {
+    if (err) {
+      console.error('Error al cerrar sesión:', err);
+      res.status(500).json({ message: 'Error al cerrar sesión' });
+      return;
+    }
+    res.redirect('/');
+  });
+}
 }
 
 export default new ContactsController();
